@@ -87,11 +87,26 @@ RSpec.describe User, type: :model do
   end
 
   describe '.authenticate_with_credentials' do
-      it "signs user in and out" do
-        user = User.create(email: 'test@test.com', password: "password", password_confirmation: "password")
-        sign_in user
-        get root_path
-        expect(response).to render_template(:index)
-      end
+    before :each do
+      @user = User.create(
+        first_name: 'John',
+        last_name: 'Jacobs',
+        email: 'johnjacob@gmail.com',
+        password: 'password'
+      )
+    end
+    it 'is not valid with not authenticated email and password' do
+      authenticate = User.authenticate_with_credentials(@user.email, @user.password)
+      expect(authenticate).to_not be_valid
+    end
+
+    it 'should not return nil for an email with spacing' do
+      authenticate = User.authenticate_with_credentials('       johnjacob@gmail.com', @user.password)
+      expect(authenticate).to_not be_nil
+    end
+    it 'should not return nil for an email with capitals' do
+      authenticate = User.authenticate_with_credentials('       johNjacob@gMail.Com', @user.password)
+      expect(authenticate).to_not be_nil
+    end
   end
 end

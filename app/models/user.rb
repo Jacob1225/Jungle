@@ -6,11 +6,11 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: {case_sensitive: false}
   validates :password, length: { minimum: 8 }
 
-def authenticate_with_credentials(email, password)
-  user = User.find_by_email(email)
-  user.authenticate(password)
-  if user 
-    return user
+def self.authenticate_with_credentials(email, password)
+  @user = User.find_by_email(email.strip.downcase)
+  
+  if @user  && @user.authenticate(password)
+    return @user
   else 
     return nil
   end

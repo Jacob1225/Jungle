@@ -3,10 +3,10 @@
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
 ## Final Product
-!["Home Page "]
-!["Product Details Page"]
-!["Shopping Cart Page"]
-!["Admin Dashboard"]
+!["Home Page"](https://github.com/Jacob1225/Jungle/blob/master/docs/Product-detail-page.png?raw=true)
+!["Product Details Page"](https://github.com/Jacob1225/Jungle/blob/master/docs/Home-page.png?raw=true)
+!["Shopping Cart Page"](https://github.com/Jacob1225/Jungle/blob/master/docs/Cart-page.png?raw=true)
+!["Admin Products Page"](https://github.com/Jacob1225/Jungle/blob/master/docs/Admin-products.png?raw=true)
 
 
 
@@ -20,6 +20,7 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 6. Sign up for a Stripe account
 7. Put Stripe (test) keys into appropriate .env vars
 8. Run `bin/rails s -b 0.0.0.0` to start the server
+9. Most importantly, have fun using Jungle! 
 
 ## Stripe Testing
 
